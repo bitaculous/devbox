@@ -1,0 +1,12 @@
+---
+- name: Download Node.js (4.x) Installer
+  get_url:
+    url=https://deb.nodesource.com/setup_4.x
+    dest=/tmp/nodejs_installer_4.x.sh
+    mode=0550
+
+- name: Install Node.js (4.x) APT sources via Installer
+  command: /bin/bash /tmp/nodejs_installer_4.x.sh
+
+- name: Install Node.js (4.x)
+  apt: name=nodejs state=present

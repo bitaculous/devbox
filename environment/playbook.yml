@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  vars:
+    paths:
+      etc: /home/vagrant/etc
+      htdocs: /home/vagrant/htdocs
+      log: /home/vagrant/log
+  pre_tasks:
+    - name: Update Advanced Package Tool (APT) cache
+      apt: update_cache=yes
+  roles:
+    - system
+    - database
+    - environment

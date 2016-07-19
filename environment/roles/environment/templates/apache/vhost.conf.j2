@@ -1,0 +1,35 @@
+<VirtualHost *:80>
+  ServerName  app.loc
+  ServerAdmin webmaster@app.loc
+
+  DocumentRoot {{ paths.htdocs }}
+
+  <Directory {{ paths.htdocs }}>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+  </Directory>
+
+  ErrorLog {{ paths.log }}/apache/error.log
+  CustomLog {{ paths.log }}/apache/access.log combined
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName  app.loc
+  ServerAdmin webmaster@app.loc
+
+  DocumentRoot {{ paths.htdocs }}
+
+  <Directory {{ paths.htdocs }}>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+  </Directory>
+
+  SSLEngine on
+  SSLCertificateKeyFile {{ paths.etc }}/ssl/dummy.key
+  SSLCertificateFile {{ paths.etc }}/ssl/dummy.crt
+
+  ErrorLog {{ paths.log }}/apache/error_ssl.log
+  CustomLog {{ paths.log }}/apache/access_ssl.log combined
+</VirtualHost>

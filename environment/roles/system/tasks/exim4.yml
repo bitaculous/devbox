@@ -1,0 +1,13 @@
+---
+- name: Remove default Exim4 configuration
+  file:
+    path=/etc/exim4/update-exim4.conf.conf
+    state=absent
+
+- name: Copy Exim4 configuration
+  template:
+    src=exim4/update-exim4.conf.conf.j2
+    dest=/etc/exim4/update-exim4.conf.conf
+  notify:
+    - Update Exim4 configuration
+    - Restart Exim4

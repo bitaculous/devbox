@@ -1,0 +1,5 @@
+- name: Install Apache Tomcat 7
+  apt: name=tomcat7 state=present
+
+- name: Install Apache Tomcat 7 Admin
+  apt: name=tomcat7-admin state=present

@@ -1,0 +1,17 @@
+- name: Check if a database dump (`~/craft/database.sql`) exists
+  stat: path=/home/vagrant/craft/database.sql
+  register: dump
+
+- name: Install MySQL
+  apt: name=mysql-server state=present
+
+- name: Install Python interface for MySQL
+  apt: name=python-mysqldb state=present
+
+- name: Create database (only when database dump exists)
+  mysql_db: name=database state=present collation=utf8_general_ci encoding=utf8
+  when: dump.stat.exists == true
+
+- name: Import database (only when database dump exists)
+  mysql_db: name=database state=import target=/home/vagrant/craft/database.sql
+  when: dump.stat.exists == true

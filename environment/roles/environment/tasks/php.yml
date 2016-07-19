@@ -1,0 +1,45 @@
+---
+- name: Install PHP
+  apt: name=php5 state=present
+
+- name: Install PHP Curl
+  apt: name=php5-curl state=present
+
+- name: Install PHP Mcrypt
+  apt: name=php5-mcrypt state=present
+
+- name: Install PHP MySQL
+  apt: name=php5-mysql state=present
+
+- name: Install PHP GD
+  apt: name=php5-gd state=present
+
+- name: Install PHP ImageMagick
+  apt: name=php5-imagick state=present
+
+- name: Install PHP Xdebug
+  apt: name=php5-xdebug state=present
+
+- name: Install PHP Memcached
+  apt: name=php5-memcached state=present
+
+- name: Copy PHP configuration (overrides default one)
+  template:
+    src=php/php.ini.j2
+    dest=/etc/php5/apache2/conf.d/00-php.ini
+  notify:
+  - Reload Apache HTTP Server
+
+- name: Copy PHP Xdebug configuration (overrides default one)
+  template:
+    src=php/xdebug.ini.j2
+    dest=/etc/php5/mods-available/xdebug.ini
+  notify:
+  - Reload Apache HTTP Server
+
+# === Includes ===
+
+- include: php/composer.yml
+# - include: php/laravel.yml
+# - include: php/symfony.yml
+# - include: php/drush.yml

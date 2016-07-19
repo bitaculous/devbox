@@ -1,0 +1,3 @@
+---
+- name: Install Laravel Installer
+  shell: composer global require "laravel/installer"

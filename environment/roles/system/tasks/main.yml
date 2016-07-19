@@ -1,0 +1,8 @@
+---
+# === Includes ===
+
+- include: curl.yml
+- include: git.yml
+- include: exim4.yml
+- include: memcached.yml
+- include: imagemagick.yml

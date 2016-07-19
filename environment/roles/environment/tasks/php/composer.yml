@@ -1,0 +1,9 @@
+---
+- name: Download Composer Installer
+  get_url:
+    url=https://getcomposer.org/installer
+    dest=/tmp/composer_installer.php
+    mode=0440
+
+- name: Install Composer via Installer
+  shell: /usr/bin/php /tmp/composer_installer.php && /bin/mv -f composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer

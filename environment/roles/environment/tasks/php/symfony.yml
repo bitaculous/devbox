@@ -1,0 +1,4 @@
+---
+- name: Install Symfony Installer
+  shell: curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony
+- file: path=/usr/local/bin/symfony mode="a+x"
