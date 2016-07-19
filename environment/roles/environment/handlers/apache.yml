@@ -1,3 +1,0 @@
----
-- name: Reload Apache HTTP Server
-  command: /etc/init.d/apache2 restart

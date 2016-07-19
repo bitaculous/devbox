@@ -26,7 +26,7 @@
 - name: Copy PHP configuration (overrides default one)
   template:
     src=php/php.ini.j2
-    dest=/etc/php5/apache2/conf.d/00-php.ini
+    dest=/etc/php5/apache2/php.ini
   notify:
   - Reload Apache HTTP Server
 

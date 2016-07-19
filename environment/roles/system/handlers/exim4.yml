@@ -1,6 +1,0 @@
----
-- name: Update Exim4 configuration
-  command: /usr/sbin/update-exim4.conf
-
-- name: Restart Exim4
-  command: /etc/init.d/exim4 restart

@@ -1,4 +1,6 @@
 ---
-# === Includes ===
+- name: Update Exim4 configuration
+  command: /usr/sbin/update-exim4.conf
 
-- include: exim4.yml
+- name: Restart Exim4
+  command: /etc/init.d/exim4 restart
