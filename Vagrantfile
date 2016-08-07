@@ -38,9 +38,9 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder 'log',    '/home/vagrant/log',    type: 'nfs'
   config.vm.synced_folder 'vendor', '/home/vagrant/vendor', type: 'nfs'
 
-  # Provider-specific configuration so you can fine-tune various backing providers for Vagrant. These expose
-  # provider-specific options.
-  #
+  # Provider-specific configuration, to fine-tune various backing providers for Vagrant. These expose provider-specific
+  # options. View the documentation for the provider you are using for more information on available options.
+
   # Example for VirtualBox:
   #
   # config.vm.provider :virtualbox do |vb|
@@ -50,15 +50,13 @@ Vagrant.configure(2) do |config|
   #   # Customize the amount of memory on the VM.
   #   vb.memory = 1024
   # end
-  #
+
   # Example for VMware Fusion:
   #
   # config.vm.provider :vmware_fusion do |vb|
   #   # Customize the amount of memory on the VM.
   #   vb.memory = 1024
   # end
-  #
-  # View the documentation for the provider you are using for more information on available options.
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies such as FTP and Heroku are also available.
   # See the documentation at <https://docs.vagrantup.com/v2/push/atlas.html> for more information.
