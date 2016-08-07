@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Devbox by bitaculous</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Devbox</h1>
+        <p>The Bitaculous Development Box.</p>
+
+        <p class="view"><a href="https://github.com/bitaculous/devbox">View the Project on GitHub <small>bitaculous/devbox</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/bitaculous/devbox/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/bitaculous/devbox/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/bitaculous/devbox">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li><a href="http://www.ansible.com" title="The simplest way to automate.">Ansible</a></li>
+<li><a href="https://www.vagrantup.com" title="Development environments made easy.">Vagrant</a></li>
+</ul>
+
+<h2>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Start</h2>
+
+<ol>
+<li>
+<p>Clone the DevBox:</p>
+
+<pre><code>$ git clone git@github.com:bitaculous/devbox.git
+</code></pre>
+</li>
+<li>
+<p>Provision the DevBox:</p>
+
+<pre><code>$ cd devbox
+$ vagrant up
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="boot-up--stop" class="anchor" href="#boot-up--stop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Boot-up / stop</h3>
+
+<pre><code>$ vagrant up
+$ vagrant halt
+</code></pre>
+
+<h3>
+<a id="suspend--resume" class="anchor" href="#suspend--resume" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Suspend / resume</h3>
+
+<pre><code>$ vagrant suspend
+$ vagrant resume
+</code></pre>
+
+<h3>
+<a id="provisioning" class="anchor" href="#provisioning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Provisioning</h3>
+
+<pre><code>$ vagrant provision
+$ vagrant provision --provision-with ansible
+$ vagrant provision --provision-with resume
+$ vagrant reload --provision
+</code></pre>
+
+<h3>
+<a id="secure-shell-ssh" class="anchor" href="#secure-shell-ssh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Secure Shell (SSH)</h3>
+
+<pre><code>$ vagrant ssh
+</code></pre>
+
+<h2>
+<a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Databases</h2>
+
+<h3>
+<a id="export" class="anchor" href="#export" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Export</h3>
+
+<pre><code>$ mysqldump -h &lt;HOST&gt; -u &lt;USERNAME&gt; -p &lt;DATABASE&gt; --default-character-set=utf8 -r &lt;NAME&gt;.sql
+
+$ mysqldump -h localhost -u root -p database --default-character-set=utf8 -r ./craft/database.sql
+</code></pre>
+
+<h3>
+<a id="import" class="anchor" href="#import" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Import</h3>
+
+<pre><code>$ mysql -h &lt;HOST&gt; -u &lt;USERNAME&gt; -p &lt;DATABASE&gt; --default-character-set=utf8 &lt; &lt;NAME&gt;.sql
+
+$ mysql -h localhost -u root -p database --default-character-set=utf8 &lt; ./craft/database.sql
+</code></pre>
+
+<h2>
+<a id="system-configuration" class="anchor" href="#system-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Configuration</h2>
+
+<ul>
+<li>OS: Debian Jessie</li>
+<li>RAM: 2GB</li>
+</ul>
+
+<h2>
+<a id="network-configuration" class="anchor" href="#network-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Network Configuration</h2>
+
+<ul>
+<li>Hostname: app.loc</li>
+<li>Ports:
+80   → 8080
+443  → 8443</li>
+</ul>
+
+<h2>
+<a id="shares" class="anchor" href="#shares" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shares</h2>
+
+<ul>
+<li><code>craft</code></li>
+<li><code>htdocs</code></li>
+<li><code>log</code></li>
+<li><code>venor</code></li>
+</ul>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Credit goes to <a href="https://github.com/svenlahann" title="Sven Lahann">Sven Lahann</a> for <a href="https://github.com/svenlahann/vagrant-ansible" title="Simple LAMP stack with Vagrant and Ansible">vagrant-ansible</a>.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>DevBox is released under the <a href="http://opensource.org/licenses/MIT" title="The MIT License (MIT)">MIT License (MIT)</a>, see <a href="https://raw.githubusercontent.com/bitaculous/devbox/master/LICENSE" title="License">LICENSE</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/bitaculous">bitaculous</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
