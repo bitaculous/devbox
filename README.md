@@ -96,7 +96,7 @@ Shares
 * `craft`
 * `htdocs`
 * `log`
-* `venor`
+* `vendor`
 
 Credits
 -------
